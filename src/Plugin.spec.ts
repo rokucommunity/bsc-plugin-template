@@ -1,8 +1,8 @@
-import { Program, standardizePath as s } from "brighterscript";
+import { Program, standardizePath as s } from 'brighterscript';
 import * as fsExtra from 'fs-extra';
-import { Plugin } from "./Plugin";
+import { Plugin } from './Plugin';
 import undent from 'undent';
-import { expect } from "chai";
+import { expect } from 'chai';
 
 describe('Plugin', () => {
     let program: Program;
@@ -11,13 +11,13 @@ describe('Plugin', () => {
     const stagingDir = s`${tempDir}/stagingDir`;
 
     beforeEach(() => {
-        fsExtra.emptydirSync(rootDir);
-        fsExtra.emptydirSync(stagingDir);
+        fsExtra.emptyDirSync(rootDir);
+        fsExtra.emptyDirSync(stagingDir);
 
         program = new Program({
             rootDir: rootDir,
             stagingDir: stagingDir
-        })
+        });
         program.plugins.add(new Plugin());
     });
 

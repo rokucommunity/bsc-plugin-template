@@ -12,13 +12,11 @@ module.exports = {
     },
     plugins: [
         '@typescript-eslint',
-        'no-only-tests',
-        'jsdoc'
+        'no-only-tests'
     ],
     extends: [
         'eslint:all',
-        'plugin:@typescript-eslint/all',
-        'plugin:jsdoc/recommended'
+        'plugin:@typescript-eslint/all'
     ],
     rules: {
         '@typescript-eslint/array-type': 'off',
@@ -91,12 +89,6 @@ module.exports = {
         '@typescript-eslint/typedef': 'off',
         '@typescript-eslint/unbound-method': 'off',
         '@typescript-eslint/unified-signatures': 'off',
-        'jsdoc/require-param': 'off',
-        'jsdoc/require-returns': 'off',
-        'jsdoc/require-param-type': 'off',
-        'jsdoc/newline-after-description': 'off',
-        'jsdoc/require-jsdoc': 'off',
-        'jsdoc/require-returns-type': 'off',
         'array-bracket-newline': 'off',
         'array-element-newline': 'off',
         'array-type': 'off',
@@ -118,6 +110,8 @@ module.exports = {
         'getter-return': 'off',
         'guard-for-in': 'off',
         'id-length': 'off',
+        '@typescript-eslint/indent': 'off',
+        'no-duplicate-imports': 'off',
         'indent': 'off',
         'init-declarations': 'off',
         'line-comment-position': 'off',

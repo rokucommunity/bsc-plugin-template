@@ -1,11 +1,12 @@
-import { BeforeFileTranspileEvent, BscFile, CompilerPlugin, Parser, WalkMode, createVisitor, isBrsFile, isXmlFile } from "brighterscript";
-import SGParser from "brighterscript/dist/parser/SGParser";
-import { SGChildren } from "brighterscript/dist/parser/SGTypes";
+import type { BeforeFileTranspileEvent, CompilerPlugin } from 'brighterscript';
+import { Parser, WalkMode, createVisitor, isBrsFile, isXmlFile } from 'brighterscript';
+import SGParser from 'brighterscript/dist/parser/SGParser';
+import { SGChildren } from 'brighterscript/dist/parser/SGTypes';
 
 export class Plugin implements CompilerPlugin {
 	name = 'bsc-plugin-fubo';
 
-	beforeFileTranspile(event: BeforeFileTranspileEvent<BscFile>) {
+	beforeFileTranspile(event: BeforeFileTranspileEvent) {
 		if (isBrsFile(event.file)) {
 			event.file.ast.walk(createVisitor({
 				FunctionStatement: (functionStatement) => {
@@ -24,19 +25,19 @@ export class Plugin implements CompilerPlugin {
 			parser.parse('generated.xml', `
 				<component name="Generated">
 					<children>
-						<label text="Hello from ${event.file.ast.component.name}" />
+						<label text="Hello from ${event.file.ast.component!.name}" />
 					</children>
 				</component>
 			`);
 
-			const label = parser.ast.component.children.children[0];
+			const label = parser.ast.component!.children.children[0];
 
 			//ensure the <children> component exists
-			if (!event.file.ast.component.children) {
-				event.file.ast.component.children = new SGChildren();
+			if (!event.file.ast.component!.children) {
+				event.file.ast.component!.children = new SGChildren();
 			}
 			event.editor.arrayUnshift(
-				event.file.ast.component.children.children,
+				event.file.ast.component!.children.children,
 				label
 			);
 		}

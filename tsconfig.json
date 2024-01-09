@@ -8,7 +8,7 @@
         "outDir": "dist",
         "declaration": true,
         "strict": true,
-        "strictNullChecks": false,
+        "strictNullChecks": true,
         "forceConsistentCasingInFileNames": true,
         "experimentalDecorators": true,
         "preserveConstEnums": true,
