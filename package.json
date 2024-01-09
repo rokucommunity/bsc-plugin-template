@@ -8,7 +8,11 @@
   ],
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "nyc mocha"
+    "build": "rimraf out && tsc",
+    "lint": "eslint \"src/**\"",
+    "preversion": "npm run build && npm run lint && npm run test",
+    "test": "nyc mocha",
+    "watch": "rimraf out && tsc --watch"
   },
   "author": "",
   "license": "MIT",
