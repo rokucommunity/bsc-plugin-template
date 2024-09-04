@@ -4,7 +4,7 @@ import SGParser from 'brighterscript/dist/parser/SGParser';
 import { SGChildren } from 'brighterscript/dist/parser/SGTypes';
 
 export class Plugin implements CompilerPlugin {
-	name = 'bsc-plugin-fubo';
+	name = 'bsc-plugin-awesome';
 
 	beforeFileTranspile(event: BeforeFileTranspileEvent) {
 		if (isBrsFile(event.file)) {
